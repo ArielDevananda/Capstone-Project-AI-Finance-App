@@ -1,0 +1,84 @@
+{% extends "base.html" %}
+{% block content %}
+
+<style>
+  .ambient-shadow { box-shadow: 0px 10px 30px rgba(30, 41, 59, 0.04); }
+  .glass-header { backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); }
+</style>
+</head>
+<body class="bg-surface text-on-surface min-h-screen">
+  <main class="w-full max-w-[1440px] mx-auto p-container-padding flex justify-center items-start pt-[81px]">
+    <div class="w-full max-w-3xl flex flex-col gap-stack-gap">
+      <header class="mb-4">
+        <h1 class="font-display-lg text-display-lg text-primary">Pengaturan</h1>
+        <p class="font-body-md text-body-md text-on-surface-variant mt-2">Kelola profil pribadi Anda dan preferensi integrasi sistem.</p>
+      </header>
+      <section class="bg-surface-container-lowest rounded-xl border border-surface-variant ambient-shadow p-card-padding flex flex-col gap-stack-gap">
+        <div class="flex items-center gap-3 border-b border-surface-variant pb-4">
+          <span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">person</span>
+          <h2 class="font-headline-md text-headline-md text-primary">Profil Pengguna</h2>
+        </div>
+        <div class="flex flex-col md:flex-row gap-8 items-start">
+          <div class="flex flex-col items-center gap-4">
+            <div class="w-32 h-32 rounded-full overflow-hidden bg-surface-container border border-surface-variant flex items-center justify-center">
+              <img alt="User Avatar" class="w-full h-full object-cover" data-alt="A professional headshot of a corporate executive against a clean, light studio background. The lighting is soft and high-key, illuminating the subject evenly. The overall color palette is muted and sophisticated, aligning with a modern, high-fidelity light-mode corporate aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDCfnI3CzK6v-fA-z3f2GhJQVNM_96e_I_7r4XlDBVU-s8-ulhgGHsEZBL_5rwbI2c8kxot94xQRqG1juf7MaFAyQ0LSy9DJeVG6n3HMNKxYJ4djNPLFEW7i_ZjiZZrqIr0Bdn7EXqzH47d7TDkgYk5g0kMNAKFu6LEdP2vareVDbJtblgHqZda8Oy44jhWZvvOTh-T0o76irg2GRrdSz-Rt4aFIHHIWjkQDKSVtX8sTwbOv1bA9U4sr8cXu4_v7GfAg5OY7Hb6dy-1" />
+            </div>
+            <button class="bg-surface-container-lowest border border-outline-variant text-primary font-body-sm text-body-sm px-4 py-2 rounded-DEFAULT hover:bg-surface transition-colors flex items-center gap-2" type="button">
+              <span class="material-symbols-outlined text-[18px]">photo_camera</span>
+              Ubah Foto
+            </button>
+          </div>
+          <div class="flex-1 flex flex-col gap-6 w-full">
+            <div class="flex flex-col gap-2">
+              <label class="font-label-caps text-label-caps text-on-surface-variant uppercase tracking-wider" for="fullName">Nama Lengkap</label>
+              <input class="w-full bg-surface-container-lowest border border-outline-variant rounded-DEFAULT px-4 py-3 font-body-md text-body-md text-on-surface focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-all" id="fullName" type="text" value="Adrian Wijaya" />
+            </div>
+            <div class="flex flex-col gap-2">
+              <label class="font-label-caps text-label-caps text-on-surface-variant uppercase tracking-wider" for="emailAddress">Alamat Email</label>
+              <input class="w-full bg-surface-container-lowest border border-outline-variant rounded-DEFAULT px-4 py-3 font-body-md text-body-md text-on-surface focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-all" id="emailAddress" type="email" value="adrian.wijaya@finance-assistant.com" />
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="bg-surface-container-lowest rounded-xl border border-surface-variant ambient-shadow p-card-padding flex flex-col gap-stack-gap">
+        <div class="flex items-center gap-3 border-b border-surface-variant pb-4">
+          <span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">smart_toy</span>
+          <h2 class="font-headline-md text-headline-md text-primary">Konfigurasi AI</h2>
+        </div>
+        <p class="font-body-sm text-body-sm text-on-surface-variant max-w-2xl">
+          Masukkan kredensial API Anda untuk mengaktifkan fitur analisis cerdas. Kunci ini disimpan secara lokal dan aman di perangkat Anda.
+        </p>
+        <div class="flex flex-col gap-6 w-full mt-2">
+          <div class="flex flex-col gap-2">
+            <label class="font-label-caps text-label-caps text-on-surface-variant uppercase tracking-wider" for="geminiKey">Gemini API Key</label>
+            <div class="relative">
+              <input class="w-full bg-surface-container-lowest border border-outline-variant rounded-DEFAULT px-4 py-3 font-body-md text-body-md text-on-surface focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-all pr-12" id="geminiKey" placeholder="AIzaSyA..." type="password" />
+              <button class="absolute right-3 top-1/2 -translate-y-1/2 text-on-surface-variant hover:text-primary transition-colors" type="button">
+                <span class="material-symbols-outlined">visibility</span>
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="mt-4 flex justify-end">
+          <button class="bg-primary text-on-primary font-body-md text-body-md px-6 py-3 rounded-DEFAULT hover:bg-on-primary-fixed-variant transition-colors flex items-center gap-2" type="button">
+            <span class="material-symbols-outlined">save</span>
+            Simpan Konfigurasi
+          </button>
+        </div>
+      </section>
+    </div>
+  </main>
+  <footer class="w-full bg-surface-container-lowest border-t border-surface-variant py-12 px-8 max-w-[1440px] mx-auto flex flex-col md:flex-row justify-between items-center gap-6 mt-16">
+    <div class="text-lg font-bold text-primary">Finance Assistant</div>
+    <div class="font-body-sm text-body-sm font-medium text-on-surface-variant flex gap-6">
+      <a class="hover:text-primary transition-colors" href="#">Privacy Policy</a>
+      <a class="hover:text-primary transition-colors" href="#">Terms of Service</a>
+      <a class="hover:text-primary transition-colors" href="#">Security Documentation</a>
+      <a class="hover:text-primary transition-colors" href="#">API Reference</a>
+    </div>
+    <div class="font-body-sm text-body-sm text-on-surface-variant">
+      © 2024 Finance Assistant. Analytical, Sophisticated, and Vigilant financial oversight.
+    </div>
+  </footer>
+</body>
+{% endblock %}

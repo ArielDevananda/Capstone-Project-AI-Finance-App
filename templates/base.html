@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+  <title>Finance AI Dashboard</title>
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&amp;family=Manrope:wght@500;600;700;800&amp;display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet" />
+  <script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+                  "on-secondary": "#ffffff",
+                  "surface-dim": "#d8dadc",
+                  "tertiary-fixed": "#ffdada",
+                  "background": "#f7f9fb",
+                  "secondary-fixed": "#6ffbbe",
+                  "inverse-primary": "#bcc7de",
+                  "on-primary-fixed": "#111c2d",
+                  "on-tertiary-fixed-variant": "#920028",
+                  "error": "#ba1a1a",
+                  "surface-variant": "#e0e3e5",
+                  "primary-fixed-dim": "#bcc7de",
+                  "secondary-fixed-dim": "#4edea3",
+                  "surface-tint": "#545f73",
+                  "on-tertiary-fixed": "#40000c",
+                  "tertiary-container": "#590015",
+                  "surface-container-low": "#f2f4f6",
+                  "tertiary": "#320008",
+                  "on-primary-fixed-variant": "#3c475a",
+                  "on-tertiary": "#ffffff",
+                  "surface-container-high": "#e6e8ea",
+                  "surface-container": "#eceef0",
+                  "on-error-container": "#93000a",
+                  "surface-bright": "#f7f9fb",
+                  "on-secondary-fixed-variant": "#005236",
+                  "on-surface": "#191c1e",
+                  "surface-container-lowest": "#ffffff",
+                  "on-surface-variant": "#45474c",
+                  "on-tertiary-container": "#ff4e67",
+                  "primary-container": "#1e293b",
+                  "on-background": "#191c1e",
+                  "inverse-on-surface": "#eff1f3",
+                  "secondary-container": "#6cf8bb",
+                  "tertiary-fixed-dim": "#ffb3b6",
+                  "inverse-surface": "#2d3133",
+                  "secondary": "#006c49",
+                  "on-primary-container": "#8590a6",
+                  "on-secondary-container": "#00714d",
+                  "outline": "#75777d",
+                  "on-primary": "#ffffff",
+                  "on-error": "#ffffff",
+                  "primary-fixed": "#d8e3fb",
+                  "primary": "#091426",
+                  "on-secondary-fixed": "#002113",
+                  "outline-variant": "#c5c6cd",
+                  "error-container": "#ffdad6",
+                  "surface-container-highest": "#e0e3e5",
+                  "surface": "#f7f9fb"
+          },
+          "borderRadius": {
+                  "DEFAULT": "0.25rem",
+                  "lg": "0.5rem",
+                  "xl": "0.75rem",
+                  "full": "9999px"
+          },
+          "spacing": {
+                  "unit": "4px",
+                  "stack-gap": "1rem",
+                  "card-padding": "1.5rem",
+                  "gutter": "1.5rem",
+                  "container-padding": "2rem"
+          },
+          "fontFamily": {
+                  "display-lg": ["Manrope"],
+                  "headline-md": ["Manrope"],
+                  "title-sm": ["Inter"],
+                  "body-md": ["Inter"],
+                  "label-caps": ["Inter"],
+                  "body-sm": ["Inter"]
+          },
+          "fontSize": {
+                  "display-lg": ["48px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                  "headline-md": ["24px", {"lineHeight": "1.4", "fontWeight": "600"}],
+                  "title-sm": ["18px", {"lineHeight": "1.5", "fontWeight": "600"}],
+                  "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                  "label-caps": ["12px", {"lineHeight": "1", "letterSpacing": "0.05em", "fontWeight": "700"}],
+                  "body-sm": ["14px", {"lineHeight": "1.5", "fontWeight": "400"}]
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    .material-symbols-outlined {
+        font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+    }
+  </style>
+
+</head>
+<body class="bg-surface font-body-md text-body-md text-on-surface antialiased overflow-hidden">
+  <!-- SideNavBar (Shared Component) -->
+  <nav class="fixed left-0 top-0 h-screen w-[280px] border-r border-slate-800 bg-slate-900 dark:bg-black text-slate-100 dark:text-white font-['Manrope'] text-sm tracking-tight shadow-2xl z-50 flex flex-col h-full p-6 space-y-8">
+    <!-- Header -->
+    <div class="flex items-center gap-3">
+      <div class="w-10 h-10 rounded-full bg-primary-fixed flex items-center justify-center overflow-hidden shrink-0">
+        <img alt="WealthVision Brand Logo" class="w-full h-full object-cover" data-alt="A striking digital installation art piece featuring glowing, generative geometric shapes suspended in a vast, minimalist gallery space. The room is illuminated by high-key, soft white lighting that creates a bright, modern light-mode aesthetic. The artwork relies on a sophisticated palette of deep blacks and pristine whites, punctuated by intense accents of vibrant red. The mood is serene yet technologically advanced." src="https://lh3.googleusercontent.com/aida-public/AB6AXuABzAhGM4KI82UwYE2OYFiSFLX4QJ5TyHHF-c2eg7IaFAkrrZN_FNWsGWywCnAFa4cX9sycaFbdqDKpJq1g3pOEkbeQmKAUFVfX9X4FvMB9ypBe70Bex4Es-G-i1GrGNkQcLlvbI_z_SL3X5_WF3vBF_vICZBvBWEpYbzUMJKM0On8Mci-EyPMJF9HFULQN5dI76utvUh2ooKiuTx0W4gevwTWPnRC20jWbzM25U8HDJfscjnyWTbANwxIvp7qZe3fS9pvIyoiW9U8" />
+      </div>
+      <div>
+        <h1 class="text-xl font-extrabold text-white tracking-widest">WealthVision</h1>
+        <p class="text-[10px] text-slate-400 uppercase tracking-wider mt-0.5">Vigilant Wealth Management</p>
+      </div>
+    </div>
+    <!-- Navigation Links -->
+    <div class="flex-1 flex flex-col space-y-2 mt-8">
+      <!-- Active Tab -->
+      <a href="/" class="flex items-center gap-3 px-4 py-3 rounded-lg scale-95 active:scale-100 transition-all duration-200 
+        {% if request.path == '/' %} 
+            bg-slate-800 text-white font-semibold 
+        {% else %} 
+            text-slate-400 hover:text-white hover:bg-slate-800/50 
+        {% endif %}">
+        <span class="material-symbols-outlined" {% if request.path == '/' %}style="font-variation-settings: 'FILL' 1;"{% endif %}>dashboard</span>
+        Dashboard
+      </a>
+      <a href="/budgeting" class="flex items-center gap-3 px-4 py-3 rounded-lg scale-95 active:scale-100 transition-all duration-200 
+        {% if request.path == '/budgeting' %} 
+            bg-slate-800 text-white font-semibold 
+        {% else %} 
+            text-slate-400 hover:text-white hover:bg-slate-800/50 
+        {% endif %}">
+        <span class="material-symbols-outlined" {% if request.path == '/budgeting' %}style="font-variation-settings: 'FILL' 1;"{% endif %}>account_balance_wallet</span>
+        Budgeting
+      </a>
+      <a href="/expenses" class="flex items-center gap-3 px-4 py-3 rounded-lg scale-95 active:scale-100 transition-all duration-200 
+        {% if request.path == '/expenses' %} 
+            bg-slate-800 text-white font-semibold 
+        {% else %} 
+            text-slate-400 hover:text-white hover:bg-slate-800/50 
+        {% endif %}">
+        <span class="material-symbols-outlined" {% if request.path == '/expenses' %}style="font-variation-settings: 'FILL' 1;"{% endif %}>receipt_long</span>
+        Expenses
+      </a>
+      <a href="/ai-advisor" class="flex items-center gap-3 px-4 py-3 rounded-lg scale-95 active:scale-100 transition-all duration-200 
+        {% if request.path == '/ai-advisor' %} 
+            bg-slate-800 text-white font-semibold 
+        {% else %} 
+            text-slate-400 hover:text-white hover:bg-slate-800/50 
+        {% endif %}">
+        <span class="material-symbols-outlined" {% if request.path == '/ai-advisor' %}style="font-variation-settings: 'FILL' 1;"{% endif %}>smart_toy</span>
+        AI Advisor
+      </a>
+      <a href="/settings" class="flex items-center gap-3 px-4 py-3 rounded-lg scale-95 active:scale-100 transition-all duration-200 
+        {% if request.path == '/settings' %} 
+            bg-slate-800 text-white font-semibold 
+        {% else %} 
+            text-slate-400 hover:text-white hover:bg-slate-800/50 
+        {% endif %}">
+        <span class="material-symbols-outlined" {% if request.path == '/settings' %}style="font-variation-settings: 'FILL' 1;"{% endif %}>settings</span>
+        Settings
+      </a>
+    </div>
+    <!-- CTA -->
+    <div class="mt-auto pt-8 border-t border-slate-800/50">
+      <button class="w-full py-3 px-4 bg-primary text-on-primary rounded-lg font-title-sm text-title-sm hover:bg-primary/90 transition-colors shadow-lg">
+        Upgrade to Pro
+      </button>
+    </div>
+  </nav>
+  <!-- TopAppBar (Shared Component) -->
+  <header class="fixed top-0 right-0 w-[calc(100%-280px)] h-16 border-b border-slate-100 dark:border-slate-800 bg-white/80 dark:bg-slate-900/80 backdrop-blur-md text-slate-900 dark:text-slate-100 font-['Manrope'] text-base font-medium shadow-[0_10px_30px_rgba(30,41,59,0.04)] z-40 flex justify-between items-center px-8">
+    <!-- Left area (Brand hidden as per JSON, showing nav links instead) -->
+    <div class="flex items-center gap-8">
+      <span class="hidden">WealthVision</span>
+      <nav class="flex gap-6">
+        <a href="/portfolio" class="py-5 transition-all duration-200 border-b-2
+        {% if request.path == '/portfolio' %} 
+            text-primary font-bold border-primary opacity-100 
+        {% else %} 
+            text-slate-500 border-transparent hover:text-slate-900 hover:border-slate-300 opacity-80 hover:opacity-100 
+        {% endif %}">Portfolio</a>
+        <a href="/insights" class="py-5 transition-all duration-200 border-b-2
+        {% if request.path == '/insights' %} 
+            text-primary font-bold border-primary opacity-100 
+        {% else %} 
+            text-slate-500 border-transparent hover:text-slate-900 hover:border-slate-300 opacity-80 hover:opacity-100 
+        {% endif %}">Insights</a>
+        <a href="/reports" class="py-5 transition-all duration-200 border-b-2
+        {% if request.path == '/reports' %} 
+            text-primary font-bold border-primary opacity-100 
+        {% else %} 
+            text-slate-500 border-transparent hover:text-slate-900 hover:border-slate-300 opacity-80 hover:opacity-100 
+        {% endif %}">Reports</a>
+      </nav>
+    </div>
+    <!-- Right area -->
+    <div class="flex items-center gap-6">
+      <div class="flex items-center gap-4">
+        <button class="text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white transition-colors opacity-80 hover:opacity-100">
+          <span class="material-symbols-outlined">notifications</span>
+        </button>
+        <button class="text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white transition-colors opacity-80 hover:opacity-100">
+          <span class="material-symbols-outlined">help_outline</span>
+        </button>
+      </div>
+      <div class="w-8 h-8 rounded-full overflow-hidden border border-slate-200">
+        <img alt="User profile avatar" class="w-full h-full object-cover" data-alt="A professional headshot of a modern corporate professional in a brightly lit, minimalist office setting. The lighting is soft and even, highlighting a sophisticated and trustworthy demeanor. The background is a clean, slightly out-of-focus white and light gray interior, perfectly matching a high-end, light-mode user interface aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCCVNpVIfkCKmdm2IGpMu0eA_UFtj8Wp8U_0eIrmIjWi0zwCa0yq0mc5-tRnMcZiciGwufe31E9rrm349l-WLE_so8QXeHu7OH3iuOT0ttewb5bZUiXO3iFKmHNCMGfoMENc67RUHcJdWMj06NH0aODl2n2af2Md-56x-QvBmGHZ9Kf8OZXWAnSXx7C5Sh4ls0rmUv8pkgLkR_xlCvBl-D-Jpsz9U755iUkK4PvXXcZeF4mOramgKpVBflM_OEUKaEv-cR2U_0LlVs" />
+      </div>
+    </div>
+  </header>
+  <!-- Main Content Area -->
+  <main class="ml-[280px] mt-16 p-container-padding h-[calc(100vh-64px)] overflow-y-auto">
+    {% block content %}
+    {% endblock %}
+  </main>
+  <!-- Floating AI Advisor FAB -->
+  <div class="fixed bottom-8 right-8 z-50 flex flex-col items-end gap-4">
+    <!-- Chat Preview (Optional expanded state visual) -->
+    <div class="w-80 bg-surface-container-lowest rounded-xl shadow-2xl border border-surface-variant overflow-hidden flex flex-col hidden md:flex opacity-0 hover:opacity-100 transition-opacity duration-300 absolute bottom-20 right-0 pointer-events-none group-hover:pointer-events-auto group-hover:opacity-100">
+      <div class="p-4 bg-gradient-to-r from-primary to-[#0f284d] text-white flex items-center justify-between">
+        <div class="flex items-center gap-2">
+          <span class="material-symbols-outlined">smart_toy</span>
+          <span class="font-title-sm text-title-sm">AI Advisor</span>
+        </div>
+        <span class="material-symbols-outlined text-sm opacity-70">close</span>
+      </div>
+      <div class="p-4 h-48 overflow-y-auto bg-surface-container-low flex flex-col gap-3">
+        <div class="self-start bg-white p-3 rounded-lg rounded-tl-none text-body-sm shadow-sm border border-surface-variant max-w-[85%]">
+          Halo! Ada yang bisa saya bantu dengan anggaran Anda hari ini?
+        </div>
+        <div class="self-end bg-primary-fixed p-3 rounded-lg rounded-tr-none text-body-sm text-primary max-w-[85%]">
+          Berapa sisa budget transportasi bulan ini?
+        </div>
+      </div>
+      <div class="p-3 bg-white border-t border-surface-variant">
+        <input class="w-full bg-surface border-none rounded-lg px-4 py-2 outline-none font-body-sm text-body-sm focus:ring-1 focus:ring-primary" placeholder="Ketik pesan..." type="text" />
+      </div>
+    </div>
+    <!-- FAB Button -->
+    <a href="/ai-advisor" class="w-14 h-14 rounded-full bg-gradient-to-br from-primary to-secondary flex items-center justify-center text-white shadow-[0_10px_25px_rgba(0,108,73,0.3)] hover:scale-105 transition-transform group relative">
+      <span class="material-symbols-outlined text-2xl">smart_toy</span>
+    </a>
+  </div>
+</body>
+</html>

@@ -1,0 +1,9 @@
+# Python dan Flask
+.venv/
+__pycache__/
+*.pyc
+
+# Database
+instance/
+*.sqlite3
+*.db

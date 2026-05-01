@@ -1,0 +1,213 @@
+{% extends "base.html" %}
+{% block content %}
+
+<!-- Page Header -->
+<header class="mb-gutter flex flex-col md:flex-row md:items-end justify-between gap-stack-gap">
+  <div>
+    <h1 class="font-display-lg text-display-lg text-primary">Expenses</h1>
+    <p class="font-body-md text-body-md text-on-surface-variant mt-2">Manage and track your corporate expenditures with precision.</p>
+  </div>
+  <div class="flex items-center gap-stack-gap">
+    <button class="bg-surface-container-lowest border border-outline-variant text-on-surface font-title-sm text-title-sm px-4 py-2 rounded-lg hover:bg-surface-container-low transition-colors duration-200 flex items-center gap-2">
+      <span class="material-symbols-outlined text-[20px]">download</span>
+      Export
+    </button>
+    <button class="bg-primary text-on-primary font-title-sm text-title-sm px-4 py-2 rounded-lg hover:bg-primary/90 transition-colors duration-200 flex items-center gap-2 shadow-sm">
+      <span class="material-symbols-outlined text-[20px]">add</span>
+      New Expense
+    </button>
+  </div>
+</header>
+<!-- Controls / Top Bar equivalent -->
+<section class="bg-surface-container-lowest rounded-xl p-card-padding shadow-sm border border-surface-variant mb-gutter flex flex-col md:flex-row items-center justify-between gap-stack-gap">
+  <!-- Search -->
+  <div class="relative w-full md:w-96">
+    <span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant">search</span>
+    <input class="w-full bg-surface-container-low border-none rounded-lg pl-10 pr-4 py-3 font-body-sm text-body-sm text-on-surface placeholder:text-on-surface-variant focus:ring-2 focus:ring-primary outline-none transition-all duration-200" placeholder="Search transactions, vendors, or descriptions..." type="text" />
+  </div>
+  <!-- Filters -->
+  <div class="flex items-center gap-stack-gap w-full md:w-auto">
+    <div class="relative w-full md:w-auto">
+      <button class="w-full md:w-auto bg-surface-container-lowest border border-outline-variant rounded-lg px-4 py-2.5 flex items-center justify-between gap-3 hover:bg-surface-container-low transition-colors duration-200">
+        <div class="flex items-center gap-2">
+          <span class="material-symbols-outlined text-on-surface-variant text-[18px]">category</span>
+          <span class="font-body-sm text-body-sm text-on-surface">All Categories</span>
+        </div>
+        <span class="material-symbols-outlined text-on-surface-variant text-[18px]">expand_more</span>
+      </button>
+    </div>
+    <div class="relative w-full md:w-auto">
+      <button class="w-full md:w-auto bg-surface-container-lowest border border-outline-variant rounded-lg px-4 py-2.5 flex items-center justify-between gap-3 hover:bg-surface-container-low transition-colors duration-200">
+        <div class="flex items-center gap-2">
+          <span class="material-symbols-outlined text-on-surface-variant text-[18px]">calendar_today</span>
+          <span class="font-body-sm text-body-sm text-on-surface">October 2023</span>
+        </div>
+        <span class="material-symbols-outlined text-on-surface-variant text-[18px]">expand_more</span>
+      </button>
+    </div>
+  </div>
+</section>
+<!-- Data Table Card -->
+<section class="bg-surface-container-lowest rounded-xl shadow-sm border border-surface-variant overflow-hidden">
+  <div class="overflow-x-auto">
+    <table class="w-full text-left border-collapse">
+      <thead>
+        <tr class="bg-surface-container-low border-b border-outline-variant">
+          <th class="py-4 px-6 font-label-caps text-label-caps text-on-surface-variant uppercase tracking-wider">Date</th>
+          <th class="py-4 px-6 font-label-caps text-label-caps text-on-surface-variant uppercase tracking-wider">Description</th>
+          <th class="py-4 px-6 font-label-caps text-label-caps text-on-surface-variant uppercase tracking-wider">Category</th>
+          <th class="py-4 px-6 font-label-caps text-label-caps text-on-surface-variant uppercase tracking-wider text-right">Amount</th>
+          <th class="py-4 px-6 font-label-caps text-label-caps text-on-surface-variant uppercase tracking-wider text-center">Action</th>
+        </tr>
+      </thead>
+      <tbody class="divide-y divide-surface-variant">
+        <!-- Row 1 -->
+        <tr class="hover:bg-surface-container-low/50 transition-colors duration-150 group">
+          <td class="py-4 px-6 whitespace-nowrap">
+            <span class="font-body-sm text-body-sm text-on-surface">Oct 24, 2023</span>
+          </td>
+          <td class="py-4 px-6">
+            <div class="flex flex-col">
+              <span class="font-title-sm text-title-sm text-on-surface">Figma Enterprise</span>
+              <span class="font-body-sm text-body-sm text-on-surface-variant">Annual Design Tools Subscription</span>
+            </div>
+          </td>
+          <td class="py-4 px-6 whitespace-nowrap">
+            <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-primary-fixed text-on-primary-fixed-variant font-label-caps text-label-caps">
+              <span class="material-symbols-outlined text-[14px]">desktop_windows</span>
+              Software
+            </span>
+          </td>
+          <td class="py-4 px-6 whitespace-nowrap text-right">
+            <span class="font-title-sm text-title-sm text-on-surface">$1,440.00</span>
+          </td>
+          <td class="py-4 px-6 whitespace-nowrap text-center">
+            <button class="text-on-surface-variant hover:text-primary transition-colors opacity-0 group-hover:opacity-100">
+              <span class="material-symbols-outlined">more_vert</span>
+            </button>
+          </td>
+        </tr>
+        <!-- Row 2 -->
+        <tr class="hover:bg-surface-container-low/50 transition-colors duration-150 group">
+          <td class="py-4 px-6 whitespace-nowrap">
+            <span class="font-body-sm text-body-sm text-on-surface">Oct 22, 2023</span>
+          </td>
+          <td class="py-4 px-6">
+            <div class="flex flex-col">
+              <span class="font-title-sm text-title-sm text-on-surface">Delta Airlines</span>
+              <span class="font-body-sm text-body-sm text-on-surface-variant">Flight to Q3 Leadership Summit</span>
+            </div>
+          </td>
+          <td class="py-4 px-6 whitespace-nowrap">
+            <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-secondary-container text-on-secondary-container font-label-caps text-label-caps">
+              <span class="material-symbols-outlined text-[14px]">flight</span>
+              Travel
+            </span>
+          </td>
+          <td class="py-4 px-6 whitespace-nowrap text-right">
+            <span class="font-title-sm text-title-sm text-on-surface">$850.50</span>
+          </td>
+          <td class="py-4 px-6 whitespace-nowrap text-center">
+            <button class="text-on-surface-variant hover:text-primary transition-colors opacity-0 group-hover:opacity-100">
+              <span class="material-symbols-outlined">more_vert</span>
+            </button>
+          </td>
+        </tr>
+        <!-- Row 3 -->
+        <tr class="hover:bg-surface-container-low/50 transition-colors duration-150 group">
+          <td class="py-4 px-6 whitespace-nowrap">
+            <span class="font-body-sm text-body-sm text-on-surface">Oct 19, 2023</span>
+          </td>
+          <td class="py-4 px-6">
+            <div class="flex flex-col">
+              <span class="font-title-sm text-title-sm text-on-surface">Amazon Web Services</span>
+              <span class="font-body-sm text-body-sm text-on-surface-variant">Cloud Infrastructure (US-East)</span>
+            </div>
+          </td>
+          <td class="py-4 px-6 whitespace-nowrap">
+            <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-tertiary-fixed text-on-tertiary-fixed-variant font-label-caps text-label-caps">
+              <span class="material-symbols-outlined text-[14px]">dns</span>
+              Infrastructure
+            </span>
+          </td>
+          <td class="py-4 px-6 whitespace-nowrap text-right">
+            <span class="font-title-sm text-title-sm text-on-surface">$4,205.75</span>
+          </td>
+          <td class="py-4 px-6 whitespace-nowrap text-center">
+            <button class="text-on-surface-variant hover:text-primary transition-colors opacity-0 group-hover:opacity-100">
+              <span class="material-symbols-outlined">more_vert</span>
+            </button>
+          </td>
+        </tr>
+        <!-- Row 4 -->
+        <tr class="hover:bg-surface-container-low/50 transition-colors duration-150 group">
+          <td class="py-4 px-6 whitespace-nowrap">
+            <span class="font-body-sm text-body-sm text-on-surface">Oct 15, 2023</span>
+          </td>
+          <td class="py-4 px-6">
+            <div class="flex flex-col">
+              <span class="font-title-sm text-title-sm text-on-surface">WeWork</span>
+              <span class="font-body-sm text-body-sm text-on-surface-variant">Monthly Hot Desk Rental - NY Office</span>
+            </div>
+          </td>
+          <td class="py-4 px-6 whitespace-nowrap">
+            <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-surface-variant text-on-surface-variant font-label-caps text-label-caps">
+              <span class="material-symbols-outlined text-[14px]">domain</span>
+              Workspace
+            </span>
+          </td>
+          <td class="py-4 px-6 whitespace-nowrap text-right">
+            <span class="font-title-sm text-title-sm text-on-surface">$500.00</span>
+          </td>
+          <td class="py-4 px-6 whitespace-nowrap text-center">
+            <button class="text-on-surface-variant hover:text-primary transition-colors opacity-0 group-hover:opacity-100">
+              <span class="material-symbols-outlined">more_vert</span>
+            </button>
+          </td>
+        </tr>
+        <!-- Row 5 -->
+        <tr class="hover:bg-surface-container-low/50 transition-colors duration-150 group">
+          <td class="py-4 px-6 whitespace-nowrap">
+            <span class="font-body-sm text-body-sm text-on-surface">Oct 12, 2023</span>
+          </td>
+          <td class="py-4 px-6">
+            <div class="flex flex-col">
+              <span class="font-title-sm text-title-sm text-on-surface">The Capital Grille</span>
+              <span class="font-body-sm text-body-sm text-on-surface-variant">Client Dinner - ACME Corp Merger</span>
+            </div>
+          </td>
+          <td class="py-4 px-6 whitespace-nowrap">
+            <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-secondary-fixed text-on-secondary-fixed-variant font-label-caps text-label-caps">
+              <span class="material-symbols-outlined text-[14px]">restaurant</span>
+              Meals
+            </span>
+          </td>
+          <td class="py-4 px-6 whitespace-nowrap text-right">
+            <span class="font-title-sm text-title-sm text-on-surface">$312.80</span>
+          </td>
+          <td class="py-4 px-6 whitespace-nowrap text-center">
+            <button class="text-on-surface-variant hover:text-primary transition-colors opacity-0 group-hover:opacity-100">
+              <span class="material-symbols-outlined">more_vert</span>
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <!-- Table Footer / Pagination -->
+  <div class="border-t border-surface-variant bg-surface-container-lowest p-4 flex items-center justify-between">
+    <span class="font-body-sm text-body-sm text-on-surface-variant">Showing 1 to 5 of 42 entries</span>
+    <div class="flex items-center gap-2">
+      <button class="p-2 rounded-lg hover:bg-surface-container-low text-on-surface-variant transition-colors disabled:opacity-50" disabled="">
+        <span class="material-symbols-outlined text-[20px]">chevron_left</span>
+      </button>
+      <button class="w-8 h-8 rounded-lg bg-primary text-on-primary font-body-sm text-body-sm flex items-center justify-center">1</button>
+      <button class="w-8 h-8 rounded-lg hover:bg-surface-container-low text-on-surface font-body-sm text-body-sm flex items-center justify-center transition-colors">2</button>
+      <button class="w-8 h-8 rounded-lg hover:bg-surface-container-low text-on-surface font-body-sm text-body-sm flex items-center justify-center transition-colors">3</button>
+      <button class="p-2 rounded-lg hover:bg-surface-container-low text-on-surface-variant transition-colors">
+        <span class="material-symbols-outlined text-[20px]">chevron_right</span>
+      </button>
+    </div>
+  </div>
+</section>
+{% endblock %}

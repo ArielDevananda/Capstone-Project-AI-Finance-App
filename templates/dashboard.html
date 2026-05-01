@@ -1,0 +1,149 @@
+{% extends "base.html" %}
+
+{% block content %}
+<!-- Greeting Header -->
+<div class="mb-8">
+  <h2 class="font-headline-md text-headline-md text-on-surface">Selamat datang kembali, Budi</h2>
+  <p class="font-body-sm text-body-sm text-on-surface-variant mt-1">Berikut adalah ringkasan finansial Anda hari ini.</p>
+</div>
+<!-- Metrics Bento Grid -->
+<div class="grid grid-cols-12 gap-gutter mb-gutter">
+  <!-- Card 1: Total Anggaran -->
+  <div class="col-span-4 bg-surface-container-lowest rounded-xl p-card-padding shadow-[0_10px_30px_rgba(30,41,59,0.04)] border border-surface-variant flex flex-col justify-between">
+    <div class="flex justify-between items-start mb-4">
+      <div class="w-10 h-10 rounded-full bg-primary-fixed flex items-center justify-center text-primary">
+        <span class="material-symbols-outlined">account_balance</span>
+      </div>
+      <button class="text-outline hover:text-on-surface"><span class="material-symbols-outlined">more_horiz</span></button>
+    </div>
+    <div>
+      <p class="font-label-caps text-label-caps text-on-surface-variant uppercase tracking-wider mb-1">Total Anggaran</p>
+      <p class="font-display-lg text-[32px] font-bold text-on-surface">Rp 50.000.000</p>
+    </div>
+  </div>
+  <!-- Card 2: Sisa Anggaran (Success/Green) -->
+  <div class="col-span-4 bg-surface-container-lowest rounded-xl p-card-padding shadow-[0_10px_30px_rgba(30,41,59,0.04)] border border-surface-variant flex flex-col justify-between relative overflow-hidden">
+    <div class="absolute bottom-0 right-0 w-32 h-32 bg-secondary-container rounded-tl-full opacity-20 -mr-10 -mb-10"></div>
+    <div class="flex justify-between items-start mb-4 relative z-10">
+      <div class="w-10 h-10 rounded-full bg-secondary-container flex items-center justify-center text-secondary">
+        <span class="material-symbols-outlined">savings</span>
+      </div>
+      <button class="text-outline hover:text-on-surface"><span class="material-symbols-outlined">more_horiz</span></button>
+    </div>
+    <div class="relative z-10">
+      <p class="font-label-caps text-label-caps text-on-surface-variant uppercase tracking-wider mb-1">Sisa Anggaran</p>
+      <p class="font-display-lg text-[32px] font-bold text-secondary">Rp 15.000.000</p>
+      <div class="mt-2 flex items-center gap-1 text-secondary text-sm">
+        <span class="material-symbols-outlined text-sm">trending_up</span>
+        <span>30% Tersisa</span>
+      </div>
+    </div>
+  </div>
+  <!-- Card 3: Total Pengeluaran (Error/Red) -->
+  <div class="col-span-4 bg-surface-container-lowest rounded-xl p-card-padding shadow-[0_10px_30px_rgba(30,41,59,0.04)] border border-surface-variant flex flex-col justify-between relative overflow-hidden">
+    <div class="absolute bottom-0 right-0 w-32 h-32 bg-error-container rounded-tl-full opacity-20 -mr-10 -mb-10"></div>
+    <div class="flex justify-between items-start mb-4 relative z-10">
+      <div class="w-10 h-10 rounded-full bg-error-container flex items-center justify-center text-error">
+        <span class="material-symbols-outlined">credit_card</span>
+      </div>
+      <button class="text-outline hover:text-on-surface"><span class="material-symbols-outlined">more_horiz</span></button>
+    </div>
+    <div class="relative z-10">
+      <p class="font-label-caps text-label-caps text-on-surface-variant uppercase tracking-wider mb-1">Total Pengeluaran</p>
+      <p class="font-display-lg text-[32px] font-bold text-error">Rp 35.000.000</p>
+      <div class="mt-2 flex items-center gap-1 text-error text-sm">
+        <span class="material-symbols-outlined text-sm">trending_down</span>
+        <span>70% Terpakai</span>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Middle Section: Form and Table -->
+<div class="grid grid-cols-12 gap-gutter mb-24">
+  <!-- Left: Input Form -->
+  <div class="col-span-4 bg-surface-container-lowest rounded-xl p-card-padding shadow-[0_10px_30px_rgba(30,41,59,0.04)] border border-surface-variant h-fit">
+    <h3 class="font-title-sm text-title-sm text-on-surface mb-6">Input Pengeluaran</h3>
+    <form method="POST" action="/tambah_pengeluaran" class="space-y-5">
+      <div>
+        <label class="block font-label-caps text-label-caps text-on-surface-variant uppercase tracking-wider mb-2">Tanggal</label>
+        <input name="tanggal" class="w-full bg-surface text-on-surface border border-outline-variant rounded-lg px-4 py-2.5 focus:border-primary focus:ring-1 focus:ring-primary transition-colors outline-none font-body-sm text-body-sm" type="date" required />
+      </div>
+      <div>
+        <label class="block font-label-caps text-label-caps text-on-surface-variant uppercase tracking-wider mb-2">Kategori</label>
+        <select name="kategori" class="w-full bg-surface text-on-surface border border-outline-variant rounded-lg px-4 py-2.5 focus:border-primary focus:ring-1 focus:ring-primary transition-colors outline-none font-body-sm text-body-sm appearance-none" required>
+          <option>Pilih Kategori</option>
+          <option>Makanan &amp; Minuman</option>
+          <option>Transportasi</option>
+          <option>Tagihan &amp; Utilitas</option>
+          <option>Hiburan</option>
+        </select>
+      </div>
+      <div>
+        <label class="block font-label-caps text-label-caps text-on-surface-variant uppercase tracking-wider mb-2">Deskripsi</label>
+        <input name="deskripsi" class="w-full bg-surface text-on-surface border border-outline-variant rounded-lg px-4 py-2.5 focus:border-primary focus:ring-1 focus:ring-primary transition-colors outline-none font-body-sm text-body-sm" placeholder="Catatan pengeluaran..." type="text" required />
+      </div>
+      <div>
+        <label class="block font-label-caps text-label-caps text-on-surface-variant uppercase tracking-wider mb-2">Jumlah (Rp)</label>
+        <input name="jumlah" class="w-full bg-surface text-on-surface border border-outline-variant rounded-lg px-4 py-2.5 focus:border-primary focus:ring-1 focus:ring-primary transition-colors outline-none font-body-sm text-body-sm" placeholder="0" type="number" required />
+      </div>
+      <button type="submit" class="w-full mt-4 py-3 px-4 bg-primary text-on-primary rounded-lg font-title-sm text-title-sm hover:bg-primary/90 transition-colors shadow-md flex items-center justify-center gap-2">
+        <span class="material-symbols-outlined text-sm">add</span>
+        Simpan Pengeluaran
+      </button>
+    </form>
+  </div>
+  <!-- Right: History Table -->
+  <div class="col-span-8 bg-surface-container-lowest rounded-xl p-card-padding shadow-[0_10px_30px_rgba(30,41,59,0.04)] border border-surface-variant overflow-hidden flex flex-col">
+    <div class="flex justify-between items-center mb-6">
+      <h3 class="font-title-sm text-title-sm text-on-surface">Riwayat Pengeluaran</h3>
+      <button class="text-primary font-body-sm text-body-sm hover:underline">Lihat Semua</button>
+    </div>
+    <div class="overflow-x-auto flex-1">
+      <table class="w-full text-left border-collapse">
+        <thead>
+          <tr class="border-b border-surface-variant">
+            <th class="py-3 font-label-caps text-label-caps text-on-surface-variant uppercase tracking-wider">Tanggal</th>
+            <th class="py-3 font-label-caps text-label-caps text-on-surface-variant uppercase tracking-wider">Deskripsi</th>
+            <th class="py-3 font-label-caps text-label-caps text-on-surface-variant uppercase tracking-wider">Kategori</th>
+            <th class="py-3 font-label-caps text-label-caps text-on-surface-variant uppercase tracking-wider text-right">Jumlah</th>
+          </tr>
+        </thead>
+        <tbody class="font-body-sm text-body-sm text-on-surface divide-y divide-surface-variant">
+          <tr class="hover:bg-surface transition-colors group">
+            <td class="py-4">12 Okt 2023</td>
+            <td class="py-4 font-medium">Makan Siang Klien</td>
+            <td class="py-4">
+              <span class="px-2.5 py-1 bg-surface-container-high rounded-md text-xs">Makanan &amp; Minuman</span>
+            </td>
+            <td class="py-4 text-right font-medium text-error">- Rp 450.000</td>
+          </tr>
+          <tr class="hover:bg-surface transition-colors group">
+            <td class="py-4">11 Okt 2023</td>
+            <td class="py-4 font-medium">Tiket Kereta Api</td>
+            <td class="py-4">
+              <span class="px-2.5 py-1 bg-surface-container-high rounded-md text-xs">Transportasi</span>
+            </td>
+            <td class="py-4 text-right font-medium text-error">- Rp 320.000</td>
+          </tr>
+          <tr class="hover:bg-surface transition-colors group">
+            <td class="py-4">10 Okt 2023</td>
+            <td class="py-4 font-medium">Tagihan Internet</td>
+            <td class="py-4">
+              <span class="px-2.5 py-1 bg-surface-container-high rounded-md text-xs">Tagihan &amp; Utilitas</span>
+            </td>
+            <td class="py-4 text-right font-medium text-error">- Rp 550.000</td>
+          </tr>
+          <tr class="hover:bg-surface transition-colors group">
+            <td class="py-4">08 Okt 2023</td>
+            <td class="py-4 font-medium">Kopi Pagi</td>
+            <td class="py-4">
+              <span class="px-2.5 py-1 bg-surface-container-high rounded-md text-xs">Makanan &amp; Minuman</span>
+            </td>
+            <td class="py-4 text-right font-medium text-error">- Rp 45.000</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+{% endblock %}

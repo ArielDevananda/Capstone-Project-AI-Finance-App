@@ -1,0 +1,153 @@
+{% extends "base.html" %}
+
+{% block content %}
+<!-- Header Section -->
+<header class="mb-12">
+  <h1 class="font-display-lg text-display-lg text-primary mb-4">Perencanaan Anggaran</h1>
+  <p class="font-body-md text-body-md text-on-surface-variant max-w-2xl">Kelola alokasi dana bulanan Anda dengan presisi. Tetapkan batas dan pantau pengeluaran untuk mencapai tujuan finansial Anda.</p>
+</header>
+<!-- Input Form Section -->
+<section class="bg-surface-container-lowest rounded-xl shadow-ambient p-card-padding border border-surface-container mb-gutter">
+  <div class="flex flex-col md:flex-row items-end gap-stack-gap">
+    <div class="w-full md:flex-1">
+      <label class="block font-label-caps text-label-caps text-on-surface-variant mb-unit uppercase" for="totalBudget">Total Anggaran Bulanan</label>
+      <div class="relative">
+        <span class="absolute inset-y-0 left-0 flex items-center pl-4 text-on-surface-variant font-body-md">Rp</span>
+        <input class="w-full pl-12 pr-4 py-3 bg-surface border border-outline-variant rounded-lg font-body-md text-on-surface focus:border-primary focus:ring-1 focus:ring-primary transition-colors outline-none" id="totalBudget" name="totalBudget" placeholder="0" type="text" value="25.000.000" />
+      </div>
+    </div>
+    <button class="w-full md:w-auto bg-primary text-on-primary font-title-sm text-title-sm py-3 px-8 rounded-lg hover:bg-primary-container transition-colors shadow-sm">Simpan Anggaran</button>
+  </div>
+</section>
+<!-- Category Grid Section -->
+<section>
+  <h2 class="font-headline-md text-headline-md text-primary mb-stack-gap">Kategori Pengeluaran</h2>
+  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-gutter">
+    <!-- Category Card 1 -->
+    <article class="bg-surface-container-lowest rounded-xl shadow-ambient p-card-padding border border-surface-container flex flex-col gap-stack-gap">
+      <div class="flex justify-between items-start">
+        <div class="flex items-center gap-3">
+          <div class="w-10 h-10 rounded-full bg-primary-fixed flex items-center justify-center text-on-primary-fixed">
+            <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">restaurant</span>
+          </div>
+          <h3 class="font-title-sm text-title-sm text-primary">Makanan &amp; Minuman</h3>
+        </div>
+        <button class="text-outline hover:text-primary transition-colors">
+          <span class="material-symbols-outlined">more_horiz</span>
+        </button>
+      </div>
+      <div>
+        <div class="flex justify-between font-body-sm text-body-sm mb-unit">
+          <span class="text-on-surface-variant">Terpakai: Rp 3.500.000</span>
+          <span class="text-on-surface font-semibold">Batas: Rp 5.000.000</span>
+        </div>
+        <!-- Progress Bar Container -->
+        <div class="w-full h-2 bg-surface-container-high rounded-full overflow-hidden">
+          <!-- Progress Fill (70%) -->
+          <div class="h-full bg-primary rounded-full" style="width: 70%;"></div>
+        </div>
+      </div>
+    </article>
+    <!-- Category Card 2 -->
+    <article class="bg-surface-container-lowest rounded-xl shadow-ambient p-card-padding border border-surface-container flex flex-col gap-stack-gap">
+      <div class="flex justify-between items-start">
+        <div class="flex items-center gap-3">
+          <div class="w-10 h-10 rounded-full bg-primary-fixed flex items-center justify-center text-on-primary-fixed">
+            <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">directions_car</span>
+          </div>
+          <h3 class="font-title-sm text-title-sm text-primary">Transportasi</h3>
+        </div>
+        <button class="text-outline hover:text-primary transition-colors">
+          <span class="material-symbols-outlined">more_horiz</span>
+        </button>
+      </div>
+      <div>
+        <div class="flex justify-between font-body-sm text-body-sm mb-unit">
+          <span class="text-on-surface-variant">Terpakai: Rp 1.200.000</span>
+          <span class="text-on-surface font-semibold">Batas: Rp 2.000.000</span>
+        </div>
+        <div class="w-full h-2 bg-surface-container-high rounded-full overflow-hidden">
+          <div class="h-full bg-primary rounded-full" style="width: 60%;"></div>
+        </div>
+      </div>
+    </article>
+    <!-- Category Card 3 -->
+    <article class="bg-surface-container-lowest rounded-xl shadow-ambient p-card-padding border border-surface-container flex flex-col gap-stack-gap">
+      <div class="flex justify-between items-start">
+        <div class="flex items-center gap-3">
+          <div class="w-10 h-10 rounded-full bg-tertiary-fixed flex items-center justify-center text-on-tertiary-fixed">
+            <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">movie</span>
+          </div>
+          <h3 class="font-title-sm text-title-sm text-primary">Hiburan</h3>
+        </div>
+        <button class="text-outline hover:text-primary transition-colors">
+          <span class="material-symbols-outlined">more_horiz</span>
+        </button>
+      </div>
+      <div>
+        <div class="flex justify-between font-body-sm text-body-sm mb-unit">
+          <span class="text-error">Terpakai: Rp 1.800.000</span>
+          <span class="text-on-surface font-semibold">Batas: Rp 1.500.000</span>
+        </div>
+        <div class="w-full h-2 bg-surface-container-high rounded-full overflow-hidden">
+          <div class="h-full bg-error rounded-full" style="width: 100%;"></div>
+        </div>
+        <p class="font-body-sm text-body-sm text-error mt-unit text-xs">Melebihi batas anggaran</p>
+      </div>
+    </article>
+    <!-- Category Card 4 -->
+    <article class="bg-surface-container-lowest rounded-xl shadow-ambient p-card-padding border border-surface-container flex flex-col gap-stack-gap">
+      <div class="flex justify-between items-start">
+        <div class="flex items-center gap-3">
+          <div class="w-10 h-10 rounded-full bg-secondary-fixed flex items-center justify-center text-on-secondary-fixed">
+            <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">home</span>
+          </div>
+          <h3 class="font-title-sm text-title-sm text-primary">Tempat Tinggal</h3>
+        </div>
+        <button class="text-outline hover:text-primary transition-colors">
+          <span class="material-symbols-outlined">more_horiz</span>
+        </button>
+      </div>
+      <div>
+        <div class="flex justify-between font-body-sm text-body-sm mb-unit">
+          <span class="text-on-surface-variant">Terpakai: Rp 5.000.000</span>
+          <span class="text-on-surface font-semibold">Batas: Rp 5.000.000</span>
+        </div>
+        <div class="w-full h-2 bg-surface-container-high rounded-full overflow-hidden">
+          <div class="h-full bg-secondary rounded-full" style="width: 100%;"></div>
+        </div>
+      </div>
+    </article>
+    <!-- Category Card 5 -->
+    <article class="bg-surface-container-lowest rounded-xl shadow-ambient p-card-padding border border-surface-container flex flex-col gap-stack-gap">
+      <div class="flex justify-between items-start">
+        <div class="flex items-center gap-3">
+          <div class="w-10 h-10 rounded-full bg-primary-fixed flex items-center justify-center text-on-primary-fixed">
+            <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">medical_services</span>
+          </div>
+          <h3 class="font-title-sm text-title-sm text-primary">Kesehatan</h3>
+        </div>
+        <button class="text-outline hover:text-primary transition-colors">
+          <span class="material-symbols-outlined">more_horiz</span>
+        </button>
+      </div>
+      <div>
+        <div class="flex justify-between font-body-sm text-body-sm mb-unit">
+          <span class="text-on-surface-variant">Terpakai: Rp 200.000</span>
+          <span class="text-on-surface font-semibold">Batas: Rp 1.000.000</span>
+        </div>
+        <div class="w-full h-2 bg-surface-container-high rounded-full overflow-hidden">
+          <div class="h-full bg-primary rounded-full" style="width: 20%;"></div>
+        </div>
+      </div>
+    </article>
+    <!-- Add New Category Card -->
+    <button class="bg-surface-container-low border border-dashed border-outline-variant rounded-xl flex flex-col items-center justify-center p-card-padding gap-unit hover:bg-surface-container-high transition-colors min-h-[160px]">
+      <div class="w-10 h-10 rounded-full bg-surface-container flex items-center justify-center text-on-surface-variant">
+        <span class="material-symbols-outlined">add</span>
+      </div>
+      <span class="font-title-sm text-title-sm text-on-surface-variant">Tambah Kategori</span>
+    </button>
+  </div>
+</section>
+{% endblock %}

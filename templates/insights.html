@@ -1,0 +1,78 @@
+{% extends "base.html" %}
+{% block content %}
+
+<!-- Header Section -->
+<header class="mb-10 flex flex-col gap-unit">
+  <h1 class="font-headline-md text-headline-md text-on-background">Wawasan Finansial AI</h1>
+  <p class="font-body-md text-body-md text-on-surface-variant">Analisis cerdas berdasarkan perilaku keuangan Anda.</p>
+</header>
+<!-- Insights Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-gutter">
+  <!-- Alert Card (Red) -->
+  <div class="bg-error-container rounded-xl p-card-padding shadow-sm flex flex-col gap-stack-gap border border-error-container/50">
+    <div class="flex items-center justify-between">
+      <span class="font-label-caps text-label-caps text-on-error-container uppercase">Anomali Pengeluaran</span>
+      <span class="material-symbols-outlined text-on-error-container text-xl" data-icon="auto_awesome">auto_awesome</span>
+    </div>
+    <div class="flex flex-col gap-2">
+      <h3 class="font-title-sm text-title-sm text-on-error-container">Lonjakan Kategori Hiburan</h3>
+      <p class="font-body-sm text-body-sm text-on-error-container opacity-90">Pengeluaran di kategori Hiburan terpantau 40% lebih tinggi dibandingkan periode yang sama bulan lalu.</p>
+    </div>
+  </div>
+  <!-- Success Card (Green) -->
+  <div class="bg-secondary-container rounded-xl p-card-padding shadow-sm flex flex-col gap-stack-gap border border-secondary-container/50">
+    <div class="flex items-center justify-between">
+      <span class="font-label-caps text-label-caps text-on-secondary-container uppercase">Pencapaian</span>
+      <span class="material-symbols-outlined text-on-secondary-container text-xl" data-icon="auto_awesome">auto_awesome</span>
+    </div>
+    <div class="flex flex-col gap-2">
+      <h3 class="font-title-sm text-title-sm text-on-secondary-container">Target Tercapai!</h3>
+      <p class="font-body-sm text-body-sm text-on-secondary-container opacity-90">Anda berhasil mencapai target Dana Darurat untuk 3 bulan. Pertahankan konsistensi menabung Anda.</p>
+    </div>
+  </div>
+  <!-- Insight/Warning Card (Yellow/Neutral fallback mapping to surface-container-high) -->
+  <div class="bg-surface-container-high rounded-xl p-card-padding shadow-sm flex flex-col gap-stack-gap border border-outline-variant">
+    <div class="flex items-center justify-between">
+      <span class="font-label-caps text-label-caps text-on-surface uppercase">Peluang Hemat</span>
+      <span class="material-symbols-outlined text-on-surface text-xl" data-icon="auto_awesome">auto_awesome</span>
+    </div>
+    <div class="flex flex-col gap-2">
+      <h3 class="font-title-sm text-title-sm text-on-surface">Langganan Tidak Aktif</h3>
+      <p class="font-body-sm text-body-sm text-on-surface-variant">Terdeteksi 2 layanan berlangganan yang tidak digunakan dalam 60 hari terakhir. Evaluasi untuk menghemat Rp 150.000/bulan.</p>
+    </div>
+  </div>
+  <!-- Success Card (Green) -->
+  <div class="bg-secondary-container rounded-xl p-card-padding shadow-sm flex flex-col gap-stack-gap border border-secondary-container/50">
+    <div class="flex items-center justify-between">
+      <span class="font-label-caps text-label-caps text-on-secondary-container uppercase">Tonggak Sejarah</span>
+      <span class="material-symbols-outlined text-on-secondary-container text-xl" data-icon="auto_awesome">auto_awesome</span>
+    </div>
+    <div class="flex flex-col gap-2">
+      <h3 class="font-title-sm text-title-sm text-on-secondary-container">Rasio Tabungan Sehat</h3>
+      <p class="font-body-sm text-body-sm text-on-secondary-container opacity-90">Bulan ini Anda berhasil mengalokasikan 25% dari pendapatan untuk investasi. Rasio yang sangat baik!</p>
+    </div>
+  </div>
+  <!-- Alert Card (Red) -->
+  <div class="bg-error-container rounded-xl p-card-padding shadow-sm flex flex-col gap-stack-gap border border-error-container/50">
+    <div class="flex items-center justify-between">
+      <span class="font-label-caps text-label-caps text-on-error-container uppercase">Peringatan Saldo</span>
+      <span class="material-symbols-outlined text-on-error-container text-xl" data-icon="auto_awesome">auto_awesome</span>
+    </div>
+    <div class="flex flex-col gap-2">
+      <h3 class="font-title-sm text-title-sm text-on-error-container">Arus Kas Menipis</h3>
+      <p class="font-body-sm text-body-sm text-on-error-container opacity-90">Berdasarkan tren harian, saldo operasional Anda berisiko habis sebelum tanggal gajian berikutnya.</p>
+    </div>
+  </div>
+  <!-- General AI Insight (Primary Fixed) -->
+  <div class="bg-primary-fixed rounded-xl p-card-padding shadow-sm flex flex-col gap-stack-gap border border-primary-fixed-dim">
+    <div class="flex items-center justify-between">
+      <span class="font-label-caps text-label-caps text-on-primary-fixed-variant uppercase">Prediksi AI</span>
+      <span class="material-symbols-outlined text-on-primary-fixed text-xl" data-icon="auto_awesome">auto_awesome</span>
+    </div>
+    <div class="flex flex-col gap-2">
+      <h3 class="font-title-sm text-title-sm text-on-primary-fixed">Proyeksi Akhir Tahun</h3>
+      <p class="font-body-sm text-body-sm text-on-primary-fixed-variant">Jika pola investasi saat ini dipertahankan, portofolio Anda diproyeksikan tumbuh 12% pada akhir tahun.</p>
+    </div>
+  </div>
+</div>
+{% endblock %}

@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+{% block content %}
+
+<!-- Page Header -->
+<header class="flex flex-col gap-2">
+  <h1 class="font-headline-md text-headline-md text-on-background">Laporan &amp; Analitik</h1>
+  <p class="font-body-md text-body-md text-on-surface-variant">Tinjauan komprehensif atas performa dan tren finansial Anda.</p>
+</header>
+<!-- Top Action Row -->
+<section class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 bg-surface-container-lowest p-4 rounded-xl shadow-sm border border-surface-variant">
+  <!-- Segmented Control -->
+  <div class="flex items-center bg-surface-container rounded-lg p-1">
+    <button class="px-5 py-2 rounded-md bg-primary-container text-on-primary-container font-label-caps text-label-caps transition-all shadow-sm">
+      Bulan Ini
+    </button>
+    <button class="px-5 py-2 rounded-md text-on-surface-variant hover:text-on-background font-label-caps text-label-caps transition-all">
+      Tahun Ini
+    </button>
+  </div>
+  <!-- Primary Action -->
+  <button class="flex items-center gap-2 bg-primary text-on-primary px-5 py-2.5 rounded-lg hover:bg-on-primary-fixed transition-colors shadow-sm">
+    <span class="material-symbols-outlined text-[18px]">download</span>
+    <span class="font-label-caps text-label-caps uppercase">Export PDF</span>
+  </button>
+</section>
+<!-- Main Chart Body -->
+<section class="flex-1 bg-surface-container-lowest rounded-xl shadow-sm p-card-padding border border-surface-variant flex flex-col min-h-[600px]">
+  <!-- Chart Header -->
+  <div class="flex justify-between items-center mb-6">
+    <div class="flex flex-col">
+      <h2 class="font-title-sm text-title-sm text-on-background">Tren Pengeluaran</h2>
+      <p class="font-body-sm text-body-sm text-on-surface-variant">Analisis visual arus kas keluar berbanding target.</p>
+    </div>
+    <button class="p-2 text-on-surface-variant hover:bg-surface-container hover:text-on-background rounded-full transition-colors">
+      <span class="material-symbols-outlined">more_vert</span>
+    </button>
+  </div>
+  <!-- Chart Placeholder Container -->
+  <div class="flex-1 border-2 border-dashed border-outline-variant rounded-xl bg-surface flex items-center justify-center p-8 transition-colors hover:bg-surface-container-low">
+    <div class="flex flex-col items-center gap-4 text-center">
+      <div class="w-16 h-16 rounded-full bg-primary-fixed flex items-center justify-center text-primary">
+        <span class="material-symbols-outlined text-3xl">monitoring</span>
+      </div>
+      <p class="font-body-md text-body-md text-on-surface-variant max-w-md">
+        Area Grafik Tren Pengeluaran (Chart.js)
+      </p>
+    </div>
+  </div>
+</section>
+{% endblock %}
