@@ -1,0 +1,180 @@
+﻿/* Fonts & Icons dimuat via <link> di layout.tsx agar lebih reliable */
+
+@import "tailwindcss";
+
+/* =========================================
+   DARK MODE â€” Tailwind CSS v4
+   next-themes menambahkan class "dark" ke <html>.
+   Kita daftarkan secara eksplisit agar semua
+   utilitas dark:* merespons class .dark tersebut.
+   ========================================= */
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* =========================================
+   TEMA GLOBAL VIGILANT FINANCE
+   (Menggabungkan Dashboard, Budgeting, AI & Expenses)
+   ========================================= */
+@theme {
+  /* COLORS */
+  --color-primary: #091426;
+  --color-on-primary: #ffffff;
+  --color-primary-container: #1e293b;
+  --color-on-primary-container: #8590a6;
+  --color-inverse-primary: #bcc7de;
+
+  --color-secondary: #006c49;
+  --color-on-secondary: #ffffff;
+  --color-secondary-container: #6cf8bb;
+  --color-on-secondary-container: #00714d;
+
+  --color-tertiary: #320008;
+  --color-on-tertiary: #ffffff;
+  --color-tertiary-container: #590015;
+  --color-on-tertiary-container: #ff4e67;
+
+  --color-error: #ba1a1a;
+  --color-on-error: #ffffff;
+  --color-error-container: #ffdad6;
+  --color-on-error-container: #93000a;
+
+  --color-background: #f7f9fb;
+  --color-on-background: #191c1e;
+
+  --color-surface: #f7f9fb;
+  --color-on-surface: #191c1e;
+  --color-surface-variant: #e0e3e5;
+  --color-on-surface-variant: #45474c;
+  --color-inverse-surface: #2d3133;
+  --color-inverse-on-surface: #eff1f3;
+
+  --color-surface-container-lowest: #ffffff;
+  --color-surface-container-low: #f2f4f6;
+  --color-surface-container: #eceef0;
+  --color-surface-container-high: #e6e8ea;
+  --color-surface-container-highest: #e0e3e5;
+  --color-surface-dim: #d8dadc;
+  --color-surface-bright: #f7f9fb;
+  --color-surface-tint: #545f73;
+
+  --color-outline: #75777d;
+  --color-outline-variant: #c5c6cd;
+
+  --color-primary-fixed: #d8e3fb;
+  --color-primary-fixed-dim: #bcc7de;
+  --color-on-primary-fixed: #111c2d;
+  --color-on-primary-fixed-variant: #3c475a;
+
+  --color-secondary-fixed: #6ffbbe;
+  --color-secondary-fixed-dim: #4edea3;
+  --color-on-secondary-fixed: #002113;
+  --color-on-secondary-fixed-variant: #005236;
+
+  --color-tertiary-fixed: #ffdada;
+  --color-tertiary-fixed-dim: #ffb3b6;
+  --color-on-tertiary-fixed: #40000c;
+  --color-on-tertiary-fixed-variant: #920028;
+
+  /* SPACING */
+  --spacing-unit: 4px;
+  --spacing-stack-gap: 1rem;
+  --spacing-card-padding: 1.5rem;
+  --spacing-gutter: 1.5rem;
+  --spacing-container-padding: 2rem;
+
+  /* FONT FAMILIES */
+  --font-display-lg: "Manrope", sans-serif;
+  --font-headline-md: "Manrope", sans-serif;
+  --font-title-sm: "Inter", sans-serif;
+  --font-body-md: "Inter", sans-serif;
+  --font-label-caps: "Inter", sans-serif;
+  --font-body-sm: "Inter", sans-serif;
+}
+
+/* =========================================
+   CUSTOM TYPOGRAPHY UTILITIES
+   (Ukuran Font spesifik beserta Spacing/Tebal-Tipisnya)
+   ========================================= */
+@utility text-display-lg {
+  font-size: 48px;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  font-weight: 700;
+}
+@utility text-headline-md {
+  font-size: 24px;
+  line-height: 1.4;
+  font-weight: 600;
+}
+@utility text-title-sm {
+  font-size: 18px;
+  line-height: 1.5;
+  font-weight: 600;
+}
+@utility text-body-md {
+  font-size: 16px;
+  line-height: 1.6;
+  font-weight: 400;
+}
+@utility text-label-caps {
+  font-size: 12px;
+  line-height: 1;
+  letter-spacing: 0.05em;
+  font-weight: 700;
+}
+@utility text-body-sm {
+  font-size: 14px;
+  line-height: 1.5;
+  font-weight: 400;
+}
+
+/* Base body style reset */
+body {
+  @apply font-body-md text-body-md;
+}
+
+/* Pengaturan default untuk ikon */
+.material-symbols-outlined {
+  font-family: 'Material Symbols Outlined';
+  font-variation-settings:
+    "FILL" 0,
+    "wght" 400,
+    "GRAD" 0,
+    "opsz" 24;
+}
+
+/* Sembunyikan ikon mata bawaan browser (misal: Microsoft Edge) */
+input[type="password"]::-ms-reveal,
+input[type="password"]::-ms-clear {
+  display: none;
+}
+input[type="password"]::-webkit-reveal {
+  display: none;
+}
+
+.markdown-body {
+  @apply space-y-3;
+}
+.markdown-body h3 {
+  @apply text-base font-bold mt-4 mb-2;
+}
+.markdown-body h4 {
+  @apply text-sm font-semibold mt-3 mb-1;
+}
+.markdown-body p {
+  @apply mb-2;
+}
+.markdown-body ul {
+  @apply list-disc pl-5 mb-3 space-y-1;
+}
+.markdown-body ol {
+  @apply list-decimal pl-5 mb-3 space-y-1;
+}
+.markdown-body li {
+  @apply marker:text-slate-400;
+}
+.markdown-body strong {
+  @apply font-bold text-slate-900 dark:text-slate-100;
+}
+.markdown-body a {
+  @apply text-indigo-600 dark:text-indigo-400 hover:underline;
+}

@@ -3,7 +3,17 @@
 __pycache__/
 *.pyc
 
+# Environment Variables (JANGAN COMMIT!)
+.env
+.env.local
+
 # Database
 instance/
 *.sqlite3
 *.db
+
+# Workspace/AI agent folders
+.vscode/
+deliverables/
+tasks/
+scratch/
