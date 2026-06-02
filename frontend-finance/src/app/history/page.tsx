@@ -94,6 +94,7 @@ export default function History() {
   useEffect(() => {
     fetchExpenses();
     setCurrentPage(1);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [bulanAktif, tahunAktif]);
 
   // --- CLIENT-SIDE FILTERING & SEARCH ---
@@ -132,6 +133,7 @@ export default function History() {
       const isValid = KATEGORI_PEMASUKAN.some(k => k.value === filterKategori);
       if (!isValid && filterKategori !== "all") setFilterKategori("all");
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [filterJenis]);
 
   // Auto-reset category in modal when type changes
