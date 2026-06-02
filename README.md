@@ -58,7 +58,11 @@ Located in the `app.py` file.
    pip install -r requirements.txt
    ```
 4. Create a `.env` file based on `.env.example` and configure your Database credentials and AI API Keys.
-5. Run the Flask server:
+5. Ensure you have PostgreSQL installed and running. Create an empty database named `wealthvision_db` (or matching your `.env` configuration) via pgAdmin or psql:
+   ```sql
+   CREATE DATABASE wealthvision_db;
+   ```
+6. Run the Flask server (SQLAlchemy will automatically generate all tables inside the database):
    ```bash
    python app.py
    ```
