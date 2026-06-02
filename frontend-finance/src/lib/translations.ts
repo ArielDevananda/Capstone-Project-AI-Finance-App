@@ -369,7 +369,7 @@ export const translations = {
     login_verifying: "Verifying Authority...",
     login_no_account: "Don't have an account?",
     login_register_link: "Register here",
-    login_error_empty: "Commander, Email and Password are required!",
+    login_error_empty: "Email and Password are required!",
     reg_title: "Start Your Journey",
     reg_desc: "Create a new WealthVision account in seconds.",
     reg_name_label: "Full Name",

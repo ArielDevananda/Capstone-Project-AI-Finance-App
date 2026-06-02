@@ -21,7 +21,7 @@ const PreferencesContext = createContext<PreferencesContextType | undefined>(und
  * Fetches initial settings from the backend and provides translation utilities (i18n).
  */
 export function PreferencesProvider({ children }: { children: ReactNode }) {
-  const [currency, setCurrencyState] = useState<string>("USD");
+  const [currency, setCurrencyState] = useState<string>("IDR");
   const [language, setLanguageState] = useState<LanguageType>("en");
 
   const refreshPreferences = async () => {

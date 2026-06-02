@@ -230,7 +230,7 @@ class UserPreference(db.Model):
 
     id = db.Column(db.Integer, primary_key=True)
     user_id = db.Column(db.Integer, db.ForeignKey('users.id'), nullable=False, unique=True)
-    currency = db.Column(db.String(10), nullable=False, default='USD')
+    currency = db.Column(db.String(10), nullable=False, default='IDR')
     language = db.Column(db.String(10), nullable=False, default='en')
     notif_email = db.Column(db.Boolean, nullable=False, default=True)
     notif_budget = db.Column(db.Boolean, nullable=False, default=True)
